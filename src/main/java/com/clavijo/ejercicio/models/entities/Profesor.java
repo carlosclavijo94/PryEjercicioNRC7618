@@ -2,9 +2,12 @@ package com.clavijo.ejercicio.models.entities;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -65,5 +68,9 @@ public class Profesor extends Persona implements Serializable{
 		this.tiempoDedicacion = tiempoDedicacion;
 	}
 
+	
+	//mappedBy debe ser un atributo en la clase relacionada
+	@OneToMany(mappedBy="docente", fetch=FetchType.LAZY)
+	private List<Aula> aulas;
 	
 }
