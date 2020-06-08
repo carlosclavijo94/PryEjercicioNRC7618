@@ -50,8 +50,5 @@ public class Alumno extends Persona implements Serializable{
 		this.matriculas = matriculas;
 	}
 	
-	
-	
-	
-	
+		
 }

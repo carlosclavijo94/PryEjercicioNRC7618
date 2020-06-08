@@ -51,6 +51,21 @@ public class Materia implements Serializable{
 	@OneToMany(mappedBy="curso", fetch=FetchType.LAZY)
 	private List<Matricula> matriculas;
 	
+	/* Varios a uno con Area*/
+	
+	@JoinColumn(name="fk_area", referencedColumnName="pk_area")
+	@ManyToOne
+	private Area area;
+	
+	//mappedBy debe ser un atributo en la clase relacionada
+	@OneToMany(mappedBy="asignatura", fetch=FetchType.LAZY)
+	private List<Aula> aulas;
+	
+
+	@JoinColumn(name="fk_semestre", referencedColumnName="pk_semestre")
+	@ManyToOne
+	private Semestre semestre;
+	
 	public Materia() {
 		super();
 	}
@@ -91,8 +106,6 @@ public class Materia implements Serializable{
 	public void setCreditos(Integer creditos) {
 		this.creditos = creditos;
 	}
-	
-	/* Varios a uno con Area*/
 	     
 	public Area getArea() {
 		return area;
@@ -101,19 +114,6 @@ public class Materia implements Serializable{
 	public void setArea(Area area) {
 		this.area = area;
 	}
-
-	@JoinColumn(name="fk_area", referencedColumnName="pk_area")
-	@ManyToOne
-	private Area area;
-	
-	//mappedBy debe ser un atributo en la clase relacionada
-	@OneToMany(mappedBy="asignatura", fetch=FetchType.LAZY)
-	private List<Aula> aulas;
-	
-
-	@JoinColumn(name="fk_semestre", referencedColumnName="pk_semestre")
-	@ManyToOne
-	private Semestre semestre;
 
 	public List<Aula> getAulas() {
 		return aulas;
@@ -138,7 +138,6 @@ public class Materia implements Serializable{
 	public void setMatriculas(List<Matricula> matriculas) {
 		this.matriculas = matriculas;
 	}
-	
 	
 
 }

@@ -49,6 +49,10 @@ public class Semestre implements Serializable{
 	
 	@Column(name="descripcion")
 	private String descripcion;
+	
+	//mappedBy debe ser un atributo en la clase relacionada
+	@OneToMany(mappedBy="semestre", fetch=FetchType.LAZY)
+	private List<Materia> materia;
 
 	public Semestre() {
 		super();
@@ -123,10 +127,6 @@ public class Semestre implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	//mappedBy debe ser un atributo en la clase relacionada
-	@OneToMany(mappedBy="semestre", fetch=FetchType.LAZY)
-	private List<Materia> materia;
-
 	public List<Materia> getMateria() {
 		return materia;
 	}
@@ -134,6 +134,5 @@ public class Semestre implements Serializable{
 	public void setMateria(List<Materia> materia) {
 		this.materia = materia;
 	}
-	
 	
 }

@@ -102,7 +102,4 @@ public class Matricula implements Serializable{
 		this.curso = curso;
 	}
 	
-	
-
-	
 }

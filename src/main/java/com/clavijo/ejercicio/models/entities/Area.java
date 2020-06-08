@@ -32,6 +32,20 @@ public class Area implements Serializable{
 	
 	@Column(name="nombre")
 	private String nombre;
+	
+	/* Relacion de uno a varios con materia*/
+	
+	public List<Materia> getMaterias() {
+		return materias;
+	}
+
+	public void setMaterias(List<Materia> materias) {
+		this.materias = materias;
+	}
+
+	//mappedBy debe ser un atributo en la clase relacionada
+	@OneToMany(mappedBy="area", fetch=FetchType.LAZY)
+	private List<Materia> materias;
 
 	public Area() {
 		super();
@@ -57,21 +71,6 @@ public class Area implements Serializable{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	/* Relacion de uno a varios con materia*/
-	
-	public List<Materia> getMaterias() {
-		return materias;
-	}
-
-	public void setMaterias(List<Materia> materias) {
-		this.materias = materias;
-	}
-
-	//mappedBy debe ser un atributo en la clase relacionada
-	@OneToMany(mappedBy="area", fetch=FetchType.LAZY)
-	private List<Materia> materias;
-	
-	
+		
 
 }

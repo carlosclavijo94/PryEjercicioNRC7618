@@ -33,6 +33,9 @@ public class Profesor extends Persona implements Serializable{
 	@Column(name="tiempo_dedicacion")
 	private String tiempoDedicacion;
 	
+	//mappedBy debe ser un atributo en la clase relacionada
+	@OneToMany(mappedBy="docente", fetch=FetchType.LAZY)
+	private List<Aula> aulas;
 	
 	public Profesor() {
 		super();
@@ -68,9 +71,12 @@ public class Profesor extends Persona implements Serializable{
 		this.tiempoDedicacion = tiempoDedicacion;
 	}
 
-	
-	//mappedBy debe ser un atributo en la clase relacionada
-	@OneToMany(mappedBy="docente", fetch=FetchType.LAZY)
-	private List<Aula> aulas;
+	public List<Aula> getAulas() {
+		return aulas;
+	}
+
+	public void setAulas(List<Aula> aulas) {
+		this.aulas = aulas;
+	}
 	
 }
