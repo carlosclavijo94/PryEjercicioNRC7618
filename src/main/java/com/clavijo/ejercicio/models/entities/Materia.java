@@ -139,5 +139,9 @@ public class Materia implements Serializable{
 		this.matriculas = matriculas;
 	}
 	
+	@Override
+	public String toString() {
+		return this.getNrc()+" "+this.getNombre();
+	}
 
 }

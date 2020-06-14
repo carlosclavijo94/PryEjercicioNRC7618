@@ -50,5 +50,10 @@ public class Alumno extends Persona implements Serializable{
 		this.matriculas = matriculas;
 	}
 	
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+	
 		
 }

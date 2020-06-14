@@ -79,4 +79,8 @@ public class Profesor extends Persona implements Serializable{
 		this.aulas = aulas;
 	}
 	
+	@Override
+	public String toString() {
+		return super.toString();
+	}
 }
